@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="userserviceimpl" class="com.kayson.service.UserServiceImpl"/>
+    <bean id="beforelog" class="com.kayson.log.BeforeLog"/>
+    <bean id="afterlog" class="com.kayson.log.AfterLog"/>
+
+    <!--配置AOP-->
+    <aop:config>
+    <!--切入点-->
+        <aop:pointcut id="pointcut" expression="execution(* com.kayson.service.UserServiceImpl.*(..))"/>
+    <!--环绕 -->
+        <aop:advisor advice-ref="afterlog" pointcut-ref="pointcut"/>
+        <aop:advisor advice-ref="beforelog" pointcut-ref="pointcut"/>
+    </aop:config>
+</beans>

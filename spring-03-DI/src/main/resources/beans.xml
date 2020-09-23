@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="address" class="com.kayson.pojo.Address">
+        <property name="address" value="成都"/>
+    </bean>
+    <bean id="student" class="com.kayson.pojo.Student">
+        <property name="name" value="kayson"/>
+        <property name="address" ref="address"/>
+        <property name="books">
+            <array>
+                <value>三体</value>
+                <value>元龙</value>
+                <value>灵笼</value>
+            </array>
+        </property>
+        <property name="hobbies">
+            <list>
+                <value>敲代码</value>
+                <value>看电影</value>
+                <value>玩游戏</value>
+                <value>听音乐</value>
+            </list>
+        </property>
+        <property name="card">
+            <map>
+                <entry key="身份证号" value="510821202010011234"/>
+                <entry key="银行股卡号" value="6123123123132123"/>
+            </map>
+        </property>
+        <property name="games">
+            <set>
+                <value>欧洲卡车模拟2</value>
+                <value>王者荣耀</value>
+            </set>
+        </property>
+        <property name="wife">
+            <null/>
+        </property>
+        <property name="info">
+            <props>
+                <prop key="学号">20201234</prop>
+                <prop key="性别">男</prop>
+                <prop key="姓名">kayson</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>
